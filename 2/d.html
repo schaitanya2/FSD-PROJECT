@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iframes Example</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 33% 34% 33%;
+            height: 100vh;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First Frame: Image -->
+        <iframe srcdoc="
+            <h3>Image Frame</h3>
+            <img src='https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=300' 
+                 width='250' height='150'>
+        "></iframe>
+
+        <!-- Second Frame: Paragraph -->
+        <iframe srcdoc="
+            <h3>Paragraph Frame</h3>
+            <p>This is a sample paragraph displayed inside the second frame. 
+            Frames allow us to divide a browser window into multiple sections.</p>
+        "></iframe>
+
+        <!-- Third Frame: Hyperlink -->
+        <iframe srcdoc="
+            <h3>Hyperlink Frame</h3>
+            <a href='https://www.google.com' target='_blank'>Visit Google</a><br>
+            <a href='https://www.wikipedia.org' target='_blank'>Visit Wikipedia</a>
+        "></iframe>
+    </div>
+</body>
+</html>
