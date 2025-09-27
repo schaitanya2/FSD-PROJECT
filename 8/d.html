@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Loops</title>
+</head>
+<body>
+  <h2>Object Data Loops</h2>
+  <script>
+    let student = {name: "Chaitanya", age: 21, branch: "CSE"};
+
+    document.write("<b>Using for-in loop:</b><br>");
+    for(let key in student) {
+      document.write(key + ": " + student[key] + "<br>");
+    }
+
+    let values = Object.values(student);
+    document.write("<br><b>Using forEach loop:</b><br>");
+    values.forEach(value => document.write(value + "<br>"));
+
+    document.write("<br><b>Using for-of loop:</b><br>");
+    for(let val of values) document.write(val + "<br>");
+  </script>
+</body>
+</html>

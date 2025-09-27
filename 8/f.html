@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amount Denomination</title>
+</head>
+<body>
+  <h2>Amount Denomination</h2>
+  <script>
+    let amount = Number(prompt("Enter the deposited amount:"));
+    let denominations = [100, 50, 20, 10, 5, 2, 1];
+    let result = "";
+
+    for(let i=0; i<denominations.length; i++) {
+      let count = Math.floor(amount / denominations[i]);
+      if(count > 0) {
+        result += denominations[i] + "’s - " + count + "<br>";
+        amount %= denominations[i];
+      }
+    }
+
+    document.write(result);
+  </script>
+</body>
+</html>
