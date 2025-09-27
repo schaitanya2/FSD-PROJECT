@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User-defined Object Demo</title>
+</head>
+<body>
+  <h2>User-defined Object Example</h2>
+  <script>
+    function Student(name, age) {
+      this.name = name; // property
+      this.age = age;   // property
+      this.display = function() { // method
+        return this.name + " is " + this.age + " years old.";
+      };
+    }
+
+    // Create object using constructor
+    let student1 = new Student("Chaitanya", 21);
+    let student2 = new Student("Narayana", 22);
+
+    // Display using method
+    document.write(student1.display() + "<br>");
+    document.write(student2.display() + "<br>");
+  </script>
+</body>
+</html>

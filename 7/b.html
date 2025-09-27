@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Window Object Demo</title>
+</head>
+<body>
+  <h2>Window Object Example</h2>
+  <script>
+    alert("Window Inner Width: " + window.innerWidth);
+    alert("Window Inner Height: " + window.innerHeight);
+    alert("Browser Name: " + window.navigator.appName);
+    let visit = confirm("Do you want to visit Google?");
+    if(visit) {
+      window.open("https://www.google.com");
+    }
+  </script>
+</body>
+</html>

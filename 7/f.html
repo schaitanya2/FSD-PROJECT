@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regex Object Demo</title>
+</head>
+<body>
+  <h2>Regex Object Example</h2>
+  <script>
+    let text = "The rain in SPAIN stays mainly in the plain";
+    let pattern = /ain/g;
+    let result = text.match(pattern);
+    document.write("Matches for 'ain': " + result + "<br>");
+    document.write("Test 'rain' in text: " + pattern.test("rain") + "<br>");
+  </script>
+</body>
+</html>
