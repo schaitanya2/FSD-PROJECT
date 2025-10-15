@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Functions</title>
+</head>
+<body>
+  <h2>Enter a Number</h2>
+  <input type="number" id="numInput" placeholder="Enter number" />
+  <br><br>
+  <button onclick="showFactorial()">Factorial</button>
+  <button onclick="showFibonacci()">Fibonacci</button>
+  <button onclick="showPrimes()">Prime Numbers</button>
+  <button onclick="showPalindrome()">Palindrome?</button>
+
+  <h3>Result:</h3>
+  <div id="result"></div>
+
+  <script>
+    function factorial(n) {
+      if (n < 0) return -1;
+      let fact = 1;
+      for (let i = 2; i <= n; i++) fact *= i;
+      return fact;
+    }
+
+    function fibonacci(n) {
+      let fib = [0, 1];
+      if (n === 0) return [0];
+      if (n === 1) return fib.slice(0, 2);
+      for (let i = 2; ; i++) {
+        let next = fib[i - 1] + fib[i - 2];
+        if (next > n) break;
+        fib.push(next);
+      }
+      return fib;
+    }
+
+    function primesUpTo(n) {
+      let primes = [];
+      for (let i = 2; i <= n; i++) {
+        let isPrime = true;
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+          if (i % j === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+        if (isPrime) primes.push(i);
+      }
+      return primes;
+    }
+
+    function isPalindrome(num) {
+      let str = num.toString();
+      return str === str.split('').reverse().join('');
+    }
+
+    function getNumber() {
+      return parseInt(document.getElementById('numInput').value);
+    }
+
+    function showFactorial() {
+      let n = getNumber();
+      if (isNaN(n) || n < 0) {
+        alert("Please enter a valid non-negative number.");
+        return;
+      }
+      document.getElementById('result').innerText = `Factorial of ${n} is ${factorial(n)}`;
+    }
+
+    function showFibonacci() {
+      let n = getNumber();
+      if (isNaN(n) || n < 0) {
+        alert("Please enter a valid non-negative number.");
+        return;
+      }
+      document.getElementById('result').innerText = `Fibonacci series up to ${n}: ${fibonacci(n).join(', ')}`;
+    }
+
+    function showPrimes() {
+      let n = getNumber();
+      if (isNaN(n) || n < 2) {
+        alert("Please enter a number greater than or equal to 2.");
+        return;
+      }
+      document.getElementById('result').innerText = `Prime numbers up to ${n}: ${primesUpTo(n).join(', ')}`;
+    }
+
+    function showPalindrome() {
+      let n = getNumber();
+      if (isNaN(n)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+      let res = isPalindrome(n) ? "is a palindrome" : "is not a palindrome";
+      document.getElementById('result').innerText = `${n} ${res}.`;
+    }
+  </script>
+</body>
+</html>

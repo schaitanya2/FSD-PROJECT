@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Validation</title>
+</head>
+<body>
+  <h2>Registration Form</h2>
+  <form id="regForm" onsubmit="return validateForm()">
+    <label>Name:</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label>Mobile:</label><br>
+    <input type="text" id="mobile" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email" required><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <div id="msg" style="color:red; margin-top: 15px;"></div>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById('name').value.trim();
+      let mobile = document.getElementById('mobile').value.trim();
+      let email = document.getElementById('email').value.trim();
+      let errors = "";
+
+      let nameRegex = /^[A-Za-z][A-Za-z0-9]{5,}$/;
+      if (!nameRegex.test(name)) {
+        errors += "Name must start with an alphabet and be at least 6 characters long (alphanumeric only).<br>";
+      }
+
+      let mobileRegex = /^[0-9]{10}$/;
+      if (!mobileRegex.test(mobile)) {
+        errors += "Mobile number must be exactly 10 digits.<br>";
+      }
+
+      let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        errors += "Please enter a valid email address.<br>";
+      }
+
+      document.getElementById('msg').innerHTML = errors;
+      return errors === "";
+    }
+  </script>
+</body>
+</html>
