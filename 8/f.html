@@ -15,7 +15,11 @@
       let count = Math.floor(amount / denominations[i]);
       if(count > 0) {
         let totalValue = denominations[i] * count; // calculate total value for this denomination
+<<<<<<< HEAD
         result += denominations[i] + "'s - " + count + " (" + totalValue + ")<br>";
+=======
+        result += denominations[i] + "’s - " + count + " (" + totalValue + ")<br>";
+>>>>>>> bb465807acda8335da1a3e2a0c161b1ab8bf32df
         amount %= denominations[i];
       }
     }
